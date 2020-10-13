@@ -1,0 +1,20 @@
+.header{
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.nav-link{
+    font-weight: 400;
+    transition: all linear 0.4s;
+}
+
+.nav-link:hover{
+    font-weight: 600;
+    border-bottom: 3px solid #7ab259;
+}
+
+.main-btn a{
+    color: white !important;
+}

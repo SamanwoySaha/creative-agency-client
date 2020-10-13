@@ -1,6 +1,6 @@
 import React from 'react';
 import './Home.css';
-import Navbar from '../Navbar/Navbar';
+import Header from '../Header/Header';
 import Banner from '../Banner/Banner';
 import Clients from '../Clients/Clients';
 import Services from '../Services/Services';
@@ -11,7 +11,7 @@ import Contact from '../Contact/Contact';
 const Home = () => {
     return (
         <div>
-            <Navbar></Navbar>
+            <Header></Header>
             <Banner></Banner>
             <Clients></Clients>
             <Services></Services>

@@ -5,14 +5,32 @@
   font-family: 'Poppins', sans-serif;
 }
 
+:root{
+  --brand-color: #FBD062;
+  --sec-color: #111430;
+  --article-color: #707070;
+}
+
+a:hover{
+  text-decoration: none !important;
+}
+
 .brand-color{
-  color: #FBD062;
+  color: #FBD062 !important;
 }
 
 .sec-color{
-  color: #111430;
+  color: #111430 !important;
 }
 
 .article-text{
-  color: #707070;
+  color: #707070 !important;
+}
+
+.main-btn{
+  background-color: #111430;
+  color: white !important;
+  padding: 10px 40px;
+  border-radius: 5px;
+  border: none;
 }
