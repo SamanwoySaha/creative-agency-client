@@ -4,7 +4,7 @@ import './Banner.css';
 
 const Banner = () => {
     return (
-        <div className="banner">
+        <section className="banner">
             <Container className="px-0">
                 <div className="row align-items-center">
                     <div className="col-sm-12 col-md-5">
@@ -19,7 +19,7 @@ const Banner = () => {
                     </div>
                 </div>
             </Container>
-        </div>
+        </section>
     );
 };
 

@@ -48,7 +48,7 @@ const Portfolio = () => {
     };
 
     return (
-        <div id="portfolio">
+        <section id="portfolio">
             <h1 className="heading text-white">Here are some of <span className="special">our works</span></h1>
             <Slider {...settings} className="container px-0 portfolio-slider">
                 {
@@ -59,7 +59,7 @@ const Portfolio = () => {
                     )
                 }
             </Slider>
-        </div>
+        </section>
     );
 };
 

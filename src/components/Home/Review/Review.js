@@ -1,10 +1,20 @@
 import React from 'react';
 import './Review.css';
 
-const Review = () => {
+const Review = ({ review }) => {
+    const { clientName, pic, designation, comment } = review;
     return (
-        <div>
-            <h1>this is review</h1>
+        <div className="col-sm-6 col-md-4">
+            <div className="review mt-5">
+                <div className="d-flex align-items-center mb-3">
+                    <img className="review-img" src={pic} alt=""/>
+                    <div>
+                        <h5 className="review-clientName mt-1 mb-1">{clientName}</h5>
+                        <p className="review-designation mb-0">{designation}</p>
+                    </div>
+                </div>
+                <p className="article-text review-comment">{comment}</p>
+            </div>
         </div>
     );
 };
