@@ -1,0 +1,21 @@
+#contact {
+    margin-top: 150px;
+    padding: 50px 0 30px;
+    background-color: var(--brand-color);
+}
+
+.contact-input{
+    height: 60px !important;
+    border-radius: 4px;
+}
+
+.contact-message{
+    height: 200px !important;
+    border-radius: 4px;
+    resize: none !important;
+}
+
+input::placeholder, textarea::placeholder{
+    padding-left: 10px;
+    padding-top: 10px;
+}
