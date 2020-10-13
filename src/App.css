@@ -34,3 +34,7 @@ a:hover{
   border-radius: 5px;
   border: none;
 }
+
+.logo{
+  width: 150px;
+}

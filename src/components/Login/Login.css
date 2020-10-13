@@ -1,0 +1,38 @@
+.login{
+    width: 570px;
+    height: 450px;
+    border: 1px solid lightgrey;
+    border-radius: 4px;
+    margin: auto;
+}
+
+.login-title{
+    font-size: 24px;
+    font-weight: 700;
+    text-align: center;
+    margin-top: 150px;
+}
+
+.login-btn{
+    padding: 12px 120px; 
+    background-color: #fff;
+    border: 1px solid lightgrey;
+    border-radius: 30px;
+    position: relative;
+}
+
+.google-icon{
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 10%;
+}
+
+.login-special{
+    color: #3F90FC;
+    cursor: pointer;
+}
+
+.login-special:hover{
+    text-decoration: underline;
+}

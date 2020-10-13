@@ -10,7 +10,7 @@ import Contact from '../Contact/Contact';
 
 const Home = () => {
     return (
-        <div>
+        <>
             <Header></Header>
             <Banner></Banner>
             <Clients></Clients>
@@ -18,7 +18,7 @@ const Home = () => {
             <Portfolio></Portfolio>
             <Reviews></Reviews>
             <Contact></Contact>
-        </div>
+        </>
     );
 };
 

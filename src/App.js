@@ -13,7 +13,7 @@ import Dashboard from './components/Dashboard/Dashboard/Dashboard';
 export const UserContext = createContext();
 
 function App() {
-  const [loggedInUser, setLoggedInUser] = useState();
+  const [loggedInUser, setLoggedInUser] = useState({});
 
   return (
     <UserContext.Provider value={[ loggedInUser, setLoggedInUser ]} className="app">
