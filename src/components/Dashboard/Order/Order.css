@@ -1,0 +1,31 @@
+.user-form{
+    width: 570px;
+    margin-left: 40px;
+    margin-top: 20px;
+}
+
+.user-form input{
+    height: 50px !important;
+    border: none !important;
+}
+
+.user-form textarea{
+    resize: none !important;
+    height: 112px !important;
+    border: none !important;
+}
+
+.file-input{
+    display: none;
+}
+
+.file-input-label{
+    width: 400px;
+    padding: 12px 30px;
+    background-color: #DEFFED;
+    border: 1px solid #009444;
+    border-radius: 5px;
+    margin-left: 20px;
+    color: #009444;
+    cursor: pointer;
+}

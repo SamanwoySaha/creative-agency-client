@@ -1,0 +1,19 @@
+.sidebar-link{
+    font-weight: 400;
+    font-size: 16px;
+    color: #222;
+    position: relative;
+    left: 0;
+    transition: all linear 0.4s;
+}
+
+.sidebar-link::active{
+    font-weight: 600;
+    color: #009444;
+}
+
+.sidebar-link:hover{
+    left: 10px;
+    font-weight: 600;
+    color: #009444;
+}

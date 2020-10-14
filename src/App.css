@@ -38,3 +38,7 @@ a:hover{
 .logo{
   width: 150px;
 }
+
+li{
+  list-style: none;
+}

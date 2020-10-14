@@ -3,9 +3,10 @@ import { Container } from 'react-bootstrap';
 import './Login.css';
 import { signInWithGoogle } from './LoginManager';
 import { UserContext } from '../../App';
+import { Link } from 'react-router-dom';
 
 const Login = () => {
-    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+    const {loggedInUser, setLoggedInUser} = useContext(UserContext);
 
     const handleGoogleSignIn = () => {
         signInWithGoogle()
@@ -15,7 +16,9 @@ const Login = () => {
 
     return (
         <Container className="login-container text-center">
-            <img className="logo mt-5 mb-5" src="https://i.imgur.com/Aq9mvuW.png" alt=""/>
+            <Link to="/">
+                <img className="logo mt-5 mb-5" src="https://i.imgur.com/Aq9mvuW.png" alt=""/>
+            </Link>
             <div className="login">
                 <h3 className="login-title mb-4">Login with</h3>
                 <button onClick={handleGoogleSignIn} className="login-btn mb-2">

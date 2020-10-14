@@ -10,7 +10,7 @@ const Header = () => {
         <Container className="header px-0">
             <Navbar className="px-0" bg="none" expand="lg">
                 <Navbar.Brand href="#home">
-                    <Link to="/home">
+                    <Link to="/">
                         <img className="logo" src="https://i.imgur.com/Aq9mvuW.png" alt="" />
                     </Link>
                 </Navbar.Brand>
