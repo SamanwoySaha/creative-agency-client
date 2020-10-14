@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { Link } from 'react-router-dom';
+import { UserContext } from '../../../App';
 import './Header.css';
 
 const Header = () => {
+    const { loggedInUser } = useContext(UserContext);
     return (
         <Container className="header px-0">
             <Navbar className="px-0" bg="none" expand="lg">
@@ -29,9 +31,15 @@ const Header = () => {
                         <Nav.Link className="nav-link ml-5 px-0">
                             <Link className="sec-color" to="#contact">Contact Us</Link>
                         </Nav.Link>
-                        <Link to="/login">
-                            <button className="main-btn ml-5 mr-0">Login</button>
-                        </Link>
+                        {
+                            loggedInUser.email 
+                                ? <Link to="/dashboard">
+                                    <button className="main-btn ml-5 mr-0">Dashboard</button>
+                                </Link>
+                                : <Link to="/login">
+                                    <button className="main-btn ml-5 mr-0">Login</button>
+                                </Link>
+                        }
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>

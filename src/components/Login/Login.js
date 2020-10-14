@@ -3,14 +3,20 @@ import { Container } from 'react-bootstrap';
 import './Login.css';
 import { signInWithGoogle } from './LoginManager';
 import { UserContext } from '../../App';
-import { Link } from 'react-router-dom';
+import { Link, useHistory, useLocation } from 'react-router-dom';
 
 const Login = () => {
+    let history = useHistory();
+    let location = useLocation();
+    let { from } = location.state || { from: { pathname: "/" } };
     const {loggedInUser, setLoggedInUser} = useContext(UserContext);
 
     const handleGoogleSignIn = () => {
         signInWithGoogle()
-        .then(data => loggedInUser(data))
+        .then(data => {
+            setLoggedInUser(data);
+            history.replace(from);
+        })
         .catch(err => console.error(err))
     }
 

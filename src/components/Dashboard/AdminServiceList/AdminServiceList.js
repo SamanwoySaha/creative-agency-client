@@ -1,12 +1,30 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Table from 'react-bootstrap/Table';
 import DashboardHeader from '../DashboardHeader/DashboardHeader';
 import './AdminServiceList.css';
 
 const AdminServiceList = () => {
-    const [serviceStatus, setServiceStatus] = useState('Pending');
+    const [orders, setOrders] = useState([]);
 
-    const handleChange = e => setServiceStatus(e.target.value);
+    const handleChange = (e, orderId) => {
+        fetch(`https://calm-savannah-67550.herokuapp.com/updateOrder/${orderId}`, {
+            method: 'PATCH',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ status: e.target.value })
+        })
+            .then(res => res.json())
+            .then(data => console.log(data))
+            .catch(err => console.log(err))
+    };
+
+    useEffect(() => {
+        fetch('https://calm-savannah-67550.herokuapp.com/orders')
+            .then(res => res.json())
+            .then(data => {
+                setOrders(data);
+            })
+            .catch(err => console.log(err))
+    }, [])
 
     return (
         <div>
@@ -23,21 +41,28 @@ const AdminServiceList = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                            <td className="text-center">
-                                <div class="input-group">
-                                    <select class="custom-select" onChange={handleChange}>
-                                        <option selected='selected' value="Pending" className="red">Pending</option>
-                                        <option value="Ongoing" className="yellow">On going</option>
-                                        <option value="Done" className="green">Done</option>
-                                    </select>
-                                </div>
-                            </td>
-                        </tr>
+                        {
+                            orders.map(order => {
+                                const { name, email, category, productDetails, status } = order;
+                                return (
+                                    <tr>
+                                        <td>{name}</td>
+                                        <td>{email}</td>
+                                        <td>{category}</td>
+                                        <td>{productDetails}</td>
+                                        <td className="text-center">
+                                            <div class="input-group">
+                                                <select class="custom-select" onChange={(e) => handleChange(e, order._id)}>
+                                                    <option selected={status === 'Pending' && 'selected'} value="Pending" className="red">Pending</option>
+                                                    <option selected={status === 'Ongoing' && 'selected'} value="Ongoing" className="yellow">On going</option>
+                                                    <option selected={status === 'Done' && 'selected'} value="Done" className="green">Done</option>
+                                                </select>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                );
+                            })
+                        }
                     </tbody>
                 </Table>
             </div>

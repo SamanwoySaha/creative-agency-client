@@ -1,9 +1,8 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './Portfolio.css';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { portfolio } from '../../../fakeData/fakeData';
 
 const Portfolio = () => {
     var settings = {
@@ -47,14 +46,23 @@ const Portfolio = () => {
         ]
     };
 
+    const [portfolioWorks, setPortfolioWorks] = useState([]);
+
+    useEffect(() => {
+        fetch('https://calm-savannah-67550.herokuapp.com/portfolio')
+            .then(res => res.json())
+            .then(data => setPortfolioWorks(data))
+            .catch(err => console.log(err))
+    }, [])
+
     return (
         <section id="portfolio">
             <h1 className="heading text-white">Here are some of <span className="special">our works</span></h1>
             <Slider {...settings} className="container px-0 portfolio-slider">
                 {
-                    portfolio.map(item =>
-                        <div>
-                            <img className="portfolio-img" key={item.pic} src={item.pic} alt="" />
+                    portfolioWorks.map(item =>
+                        <div key={item._id}>
+                            <img className="portfolio-img" src={item.pic} alt="" />
                         </div>
                     )
                 }

@@ -1,29 +1,60 @@
-import React from 'react';
+import React, { useState } from 'react';
 import DashboardHeader from '../DashboardHeader/DashboardHeader';
 import './AddService.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCloudUploadAlt } from '@fortawesome/free-solid-svg-icons';
 
 const AddService = () => {
+    const [serviceInfo, setServiceInfoInfo] = useState({});
+    const [file, setFile] = useState(null);
+
+    const handleBlur = (e) => {
+        const newInfo = { ...serviceInfo };
+        newInfo[e.target.name] = e.target.value;
+        setServiceInfoInfo(newInfo);
+    }
+
+    const handleChange = (e) => {
+        const newFile = e.target.files[0];
+        setFile(newFile);
+    }
+
+    const handleSubmit = (e) => {
+        const formData = new FormData()
+        formData.append('file', file);
+        formData.append('title', serviceInfo.title);
+        formData.append('description', serviceInfo.description);
+
+        fetch('https://calm-savannah-67550.herokuapp.com/addService', {
+            method: 'POST',
+            body: formData
+        })
+            .then(res => res.json())
+            .then(data => console.log(data))
+            .catch(error => console.error(error))
+
+        e.preventDefault();
+    }
+
     return (
         <div>
             <DashboardHeader><p>Add Services</p></DashboardHeader>
             <div className="form-container">
-                <form action="" className="admin-form">
+                <form onSubmit={handleSubmit} action="" className="admin-form">
                     <div className="d-flex justify-content-between">
                         <div className="d-flex flex-column">
                             <label htmlFor="title">Service Title</label>
-                            <input className="form-control mb-3" type="text" id="title" name="title" placeholder="Enter title" />
+                            <input onBlur={handleBlur} className="form-control mb-3" type="text" id="title" name="title" placeholder="Enter title" />
                             <label htmlFor="description">Description</label>
-                            <textarea className="form-control" name="description" id="description" placeholder="Description" />
+                            <textarea onBlur={handleBlur} className="form-control" name="description" id="description" placeholder="Description" />
                         </div>
                         <div className="d-flex flex-column align-self-left">
                             <label>Icon</label>
                             <label htmlFor="image" className="file-input-label ml-n1">
                                 <FontAwesomeIcon className="mr-2" icon={faCloudUploadAlt} />
-                            Upload Image
-                        </label>
-                            <input type="file" className="file-input" name="image" id="image" />
+                                Upload Image
+                            </label>
+                            <input onChange={handleChange} type="file" className="file-input" name="image" id="image" />
                         </div>
                         <button type="submit" style={{ backgroundColor: '#009444' }} className="main-btn mt-auto">Submit</button>
                     </div>

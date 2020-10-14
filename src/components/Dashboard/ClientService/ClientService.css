@@ -5,3 +5,11 @@
     background-color: #fff;
     margin: 0 20px;
 }
+
+.status{
+    width: 108px;
+    height: 40px;
+    border-radius: 5px;
+    text-align: center;
+    line-height: 40px;
+}

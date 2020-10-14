@@ -21,8 +21,6 @@ const User = () => {
                     <MakeReview></MakeReview>
                 </Route>
             </Switch>
-
-
         </div>
     );
 };

@@ -2,12 +2,33 @@ import React from 'react';
 import './ClientService.css';
 
 const ClientService = ({ service }) => {
-    const { pic, title, description } = service;
+    const { image, category, description, status } = service;
+    const statusStyle = {
+        pending: {
+            backgroundColor: '#FFE3E3',
+            color: '#FF4545'
+        },
+        onGoing: {
+            backgroundColor: '#FFBD3E',
+            color: '#BFB304'
+        },
+        done: {
+            backgroundColor: '#C6FFE0',
+            color: '#009444'
+        }
+    }
     return (
         <div className="clientService">
-            <img className="service-img img-fluid mb-3" src={pic} alt="" />
-            <h5 className="service-title mb-2">{title}</h5>
-            <p className="service-description mr-5">{description}</p>
+            <div className="d-flex justify-content-between">
+                <img className="service-img img-fluid mb-3" src={`data:${image.contentType};base64,${image.img}`} alt="" />
+                <p 
+                    style={(status === 'Pending') 
+                        ? statusStyle.pending : (status === 'Ongoing') 
+                        ? statusStyle.onGoing : statusStyle.done} 
+                    className="status">{status}</p>
+            </div>
+            <h5 className="service-title mb-2">{category}</h5>
+            <p className="service-description ml-n1 w-100">{description}</p>
         </div>
     );
 };

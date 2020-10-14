@@ -11,8 +11,9 @@ const DashboardHeader = (props) => {
                 {props.children}
                 {
                     loggedInUser &&
-                    <h5>
-                        <img src={loggedInUser.photo} alt="" />
+                    <h5 className="mr-5">
+                        <img style={{ borderRadius: '50%', width: '40px', height: '40px' }} 
+                        src={loggedInUser.photo} className="mr-2" alt="" />
                         {loggedInUser.name}
                     </h5>
                 }
