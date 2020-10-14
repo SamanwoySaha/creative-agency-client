@@ -1,7 +1,6 @@
 .user-form{
     width: 570px;
-    margin-left: 40px;
-    margin-top: 20px;
+    margin: 30px 40px;
 }
 
 .user-form input{

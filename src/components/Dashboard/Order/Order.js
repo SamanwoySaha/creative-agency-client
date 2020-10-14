@@ -20,7 +20,7 @@ const Order = () => {
                     <input type="text" className="form-control inline" name="price" placeholder="Price" />
                     <label htmlFor="image" className="file-input-label">
                         <FontAwesomeIcon className="mr-2" icon={faCloudUploadAlt} />
-                    Upload project file
+                        Upload project file
                     </label>
                     <input type="file" className="file-input" name="image" id="image" />
                 </div>

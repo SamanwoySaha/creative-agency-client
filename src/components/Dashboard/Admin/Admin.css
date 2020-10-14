@@ -2,3 +2,18 @@
     height: 100vh;
     background-color: #f4f7fc;
 }
+
+.admin-form input {
+    width: 490px;
+    height: 40px;
+}
+
+.admin-form textarea {
+    resize: none !important;
+    height: 121px !important;
+}
+
+.admin-form .file-input-label{
+    width: 250px;
+    padding: 11px 30px !important;
+}
