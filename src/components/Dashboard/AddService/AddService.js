@@ -48,14 +48,14 @@ const AddService = () => {
             </DashboardHeader>
             <div className="form-container">
                 <form onSubmit={handleSubmit} action="" className="admin-form">
-                    <div className="d-flex justify-content-between">
-                        <div className="d-flex flex-column">
+                    <div className="d-flex flex-wrap justify-content-between">
+                        <div className="d-flex flex-wrap flex-column">
                             <label htmlFor="title">Service Title</label>
                             <input onBlur={handleBlur} className="form-control mb-3" type="text" id="title" name="title" placeholder="Enter title" required/>
                             <label htmlFor="description">Description</label>
                             <textarea onBlur={handleBlur} className="form-control" name="description" id="description" placeholder="Description" required/>
                         </div>
-                        <div className="d-flex flex-column align-self-left">
+                        <div className="d-flex flex-wrap flex-column align-self-left">
                             <label>Icon</label>
                             <label htmlFor="image" className="file-input-label ml-n1">
                                 <FontAwesomeIcon className="mr-2" icon={faCloudUploadAlt} />
@@ -63,7 +63,7 @@ const AddService = () => {
                             </label>
                             <input onChange={handleChange} type="file" className="file-input" name="image" id="image" required/>
                         </div>
-                        <div className="mt-auto d-flex align-items-center justify-content-between">
+                        <div className="mt-auto d-flex flex-wrap align-items-center justify-content-between">
                             <p id="popUp" className="mr-5">Service Added</p>
                             <button type="submit" style={{ backgroundColor: '#009444' }} className="main-btn">Submit</button>
                         </div>

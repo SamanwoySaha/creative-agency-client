@@ -27,7 +27,7 @@ const MakeAdmin = () => {
             <DashboardHeader><p>Make Admin</p></DashboardHeader>
             <div className="form-container" style={{ height: '305px' }}>
                 <form onSubmit={handleSubmit} className="admin-form">
-                    <div className="d-flex">
+                    <div className="d-flex flex-wrap">
                         <div>
                             <label htmlFor="email">Email</label>
                             <input className="form-control mt-n1 mr-2" type="email" ref={email} name="email" placeholder="Enter email address" required/>
