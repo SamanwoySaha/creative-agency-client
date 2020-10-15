@@ -20,7 +20,7 @@ const Reviews = () => {
             </h1>
             <div className="row mt-5">
                 {
-                    reviews.map((review) => <Review review={review}></Review>)
+                    reviews.map((review) => <Review key={review._id} review={review}></Review>)
                 }
             </div>
         </Container>

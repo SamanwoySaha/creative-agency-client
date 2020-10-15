@@ -3,6 +3,7 @@ import DashboardHeader from '../DashboardHeader/DashboardHeader';
 import './AddService.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCloudUploadAlt } from '@fortawesome/free-solid-svg-icons';
+import popUp from '../../../Utilities/popUp';
 
 const AddService = () => {
     const [serviceInfo, setServiceInfoInfo] = useState({});
@@ -30,7 +31,11 @@ const AddService = () => {
             body: formData
         })
             .then(res => res.json())
-            .then(data => console.log(data))
+            .then(data => {
+                if(data){
+                    popUp();
+                }
+            })
             .catch(error => console.error(error))
 
         e.preventDefault();
@@ -44,9 +49,9 @@ const AddService = () => {
                     <div className="d-flex justify-content-between">
                         <div className="d-flex flex-column">
                             <label htmlFor="title">Service Title</label>
-                            <input onBlur={handleBlur} className="form-control mb-3" type="text" id="title" name="title" placeholder="Enter title" />
+                            <input onBlur={handleBlur} className="form-control mb-3" type="text" id="title" name="title" placeholder="Enter title" required/>
                             <label htmlFor="description">Description</label>
-                            <textarea onBlur={handleBlur} className="form-control" name="description" id="description" placeholder="Description" />
+                            <textarea onBlur={handleBlur} className="form-control" name="description" id="description" placeholder="Description" required/>
                         </div>
                         <div className="d-flex flex-column align-self-left">
                             <label>Icon</label>
@@ -54,9 +59,12 @@ const AddService = () => {
                                 <FontAwesomeIcon className="mr-2" icon={faCloudUploadAlt} />
                                 Upload Image
                             </label>
-                            <input onChange={handleChange} type="file" className="file-input" name="image" id="image" />
+                            <input onChange={handleChange} type="file" className="file-input" name="image" id="image" required/>
                         </div>
-                        <button type="submit" style={{ backgroundColor: '#009444' }} className="main-btn mt-auto">Submit</button>
+                        <div className="mt-auto d-flex align-items-center justify-content-between">
+                            <p id="popUp" className="mr-5">Service Added</p>
+                            <button type="submit" style={{ backgroundColor: '#009444' }} className="main-btn">Submit</button>
+                        </div>
                     </div>
                 </form>
             </div>

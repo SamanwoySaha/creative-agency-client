@@ -16,6 +16,18 @@
     border-bottom: 3px solid #7ab259;
 }
 
-.main-btn a{
+.main-btn{
     color: white !important;
+}
+
+@media (max-width: 768px) { 
+    .nav-link{
+        background: #fff;
+        border-radius: 30px;
+        margin: 10px;
+        text-align: center;
+    }
+    .main-btn{
+        text-align: center;
+    }
 }

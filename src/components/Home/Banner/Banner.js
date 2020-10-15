@@ -7,7 +7,7 @@ const Banner = () => {
         <section className="banner">
             <Container className="px-0">
                 <div className="row align-items-center">
-                    <div className="col-sm-12 col-md-5">
+                    <div className="col-sm-12 col-md-5 text-center text-md-left">
                         <h1 className="banner-heading mb-4">Let’s Grow Your Brand To The Next Level</h1>
                         <p className="sec-color banner-article mb-4">
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus commodo ipsum duis laoreet maecenas. Feugiat

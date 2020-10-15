@@ -36,3 +36,9 @@
     border-radius: 50%;
     background-color: #FBD062;
 }
+
+@media (max-width: 768px){
+    .portfolio-img{
+        width: 100%;
+    }
+}

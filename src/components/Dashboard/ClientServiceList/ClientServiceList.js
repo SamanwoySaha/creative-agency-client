@@ -22,7 +22,7 @@ const ClientServiceList = () => {
     return (
         <div>
             <DashboardHeader><p>Service List</p></DashboardHeader>
-            <div className="clientServiceList d-flex">
+            <div className="clientServiceList d-flex flex-wrap">
                 {
                     orders.map(service => <ClientService service={service}></ClientService>)
                 }

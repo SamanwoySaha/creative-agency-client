@@ -11,33 +11,33 @@ const Header = () => {
     return (
         <Container className="header px-0">
             <Navbar className="px-0" bg="none" expand="lg">
-                <Navbar.Brand href="#home">
-                    <Link to="/">
+                <Link to="/">
+                    <Navbar.Brand>
                         <img className="logo" src="https://i.imgur.com/Aq9mvuW.png" alt="" />
-                    </Link>
-                </Navbar.Brand>
+                    </Navbar.Brand>
+                </Link>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="ml-auto">
-                        <Nav.Link className="nav-link ml-5 px-0">
-                            <Link className="sec-color" to="/">Home</Link>
-                        </Nav.Link>
-                        <Nav.Link className="nav-link ml-5 px-0">
-                            <Link className="sec-color" to="#portfolio">Our Portfolio</Link>
-                        </Nav.Link>
-                        <Nav.Link className="nav-link ml-5 px-0">
-                            <Link className="sec-color" to="#team">Our Team</Link>
-                        </Nav.Link>
-                        <Nav.Link className="nav-link ml-5 px-0">
-                            <Link className="sec-color" to="#contact">Contact Us</Link>
-                        </Nav.Link>
+                        <Link className="nav-link sec-color ml-5 px-0" to="/">
+                            Home
+                        </Link>
+                        <Link className="nav-link sec-color ml-5 px-0" to="#portfolio">
+                            Our Portfolio
+                        </Link>
+                        <Link className="nav-link sec-color ml-5 px-0" to="#team">
+                            Our Team
+                        </Link>
+                        <Link className="nav-link sec-color ml-5 px-0" to="#contact">
+                            Contact Us
+                        </Link>
                         {
-                            loggedInUser.email 
-                                ? <Link to="/dashboard">
-                                    <button className="main-btn ml-5 mr-0">Dashboard</button>
+                            loggedInUser.email
+                                ? <Link to="/dashboard" className="main-btn ml-5 mr-0">
+                                    Dashboard
                                 </Link>
-                                : <Link to="/login">
-                                    <button className="main-btn ml-5 mr-0">Login</button>
+                                : <Link className="main-btn ml-5 mr-0" to="/login">
+                                    Login
                                 </Link>
                         }
                     </Nav>

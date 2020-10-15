@@ -24,3 +24,12 @@
 .banner-article{
     width: 370px;
 }
+
+@media (max-width: 768px) {
+    .banner::before{
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+    .banner-article{
+        width: 100%;
+    }
+}

@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Table from 'react-bootstrap/Table';
+import popUp from '../../../Utilities/popUp';
 import DashboardHeader from '../DashboardHeader/DashboardHeader';
 import './AdminServiceList.css';
 
@@ -13,7 +14,11 @@ const AdminServiceList = () => {
             body: JSON.stringify({ status: e.target.value })
         })
             .then(res => res.json())
-            .then(data => console.log(data))
+            .then(data => {
+                if(data){
+                    popUp();
+                }
+            })
             .catch(err => console.log(err))
     };
 
@@ -28,7 +33,9 @@ const AdminServiceList = () => {
 
     return (
         <div>
-            <DashboardHeader><p>Service List</p></DashboardHeader>
+            <DashboardHeader>
+                <p>Service List <span className="ml-3" id="popUp">Order Updated</span></p>
+            </DashboardHeader>
             <div className="servicelist-table">
                 <Table borderless>
                     <thead>

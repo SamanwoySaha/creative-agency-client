@@ -16,7 +16,7 @@ const Service = ({ service }) => {
         toggle(!state);
         setTimeout(() => {
             history.push('/dashboard');
-        }, 1000)
+        }, 2000)
     }
     
     return (

@@ -4,6 +4,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCloudUploadAlt } from '@fortawesome/free-solid-svg-icons';
 import DashboardHeader from '../DashboardHeader/DashboardHeader';
 import { UserContext } from '../../../App';
+import popUp from '../../../Utilities/popUp';
+import '../../../Utilities/popUp.css';
 
 const Order = () => {
     const { orderedService, setOrderedService } = useContext(UserContext);
@@ -37,7 +39,11 @@ const Order = () => {
             body: formData
         })
             .then(res => res.json())
-            .then(data => console.log(data))
+            .then(data => {
+                if(data){
+                    popUp();
+                }
+            })
             .catch(error => console.error(error))
 
         e.preventDefault();
@@ -47,19 +53,22 @@ const Order = () => {
         <div>
             <DashboardHeader><p>Order</p></DashboardHeader>
             <form onSubmit={handleSubmit} className="user-form" action="">
-                <input onBlur={handleBlur} type="text" className="form-control mb-3" name="name" placeholder="Your name / company's name" />
-                <input onBlur={handleBlur} type="email" className="form-control mb-3" name="email" placeholder="Your email address" />
+                <input onBlur={handleBlur} type="text" className="form-control mb-3" name="name" placeholder="Your name / company's name" required/>
+                <input onBlur={handleBlur} type="email" className="form-control mb-3" name="email" placeholder="Your email address" required/>
                 <input onBlur={handleBlur} type="text" value={orderedService.title} className="form-control mb-3" name="category" placeholder="Your Category" readonly />
-                <textarea onBlur={handleBlur} name="productDetails" className="form-control mb-3" placeholder="Product Details"></textarea>
+                <textarea onBlur={handleBlur} name="productDetails" className="form-control mb-3" placeholder="Product Details" required></textarea>
                 <div className="d-flex mb-2">
-                    <input onBlur={handleBlur} type="text" className="form-control inline" name="price" placeholder="Price" />
+                    <input onBlur={handleBlur} type="text" className="form-control inline" name="price" placeholder="Price" required/>
                     <label htmlFor="image" className="file-input-label">
                         <FontAwesomeIcon className="mr-2" icon={faCloudUploadAlt} />
                         Upload project file
                     </label>
-                    <input onChange={handleChange} type="file" className="file-input" name="image" id="image" />
+                    <input onChange={handleChange} type="file" className="file-input" name="image" id="image" required/>
                 </div>
-                <button type="submit" className="main-btn">Send</button>
+                <d className="flex justify-content-between align-items-center">
+                    <button type="submit" className="main-btn">Send</button>
+                    <p id="popUp">Order Added</p>
+                </d>
             </form>
         </div>
     );

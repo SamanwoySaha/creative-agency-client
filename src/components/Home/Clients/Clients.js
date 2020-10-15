@@ -16,7 +16,7 @@ const Clients = () => {
         <Container className="clients px-0">
             <div className="row">
                 <div className="col-md-10 offset-md-1">
-                    <div className="d-flex justify-content-between align-items-center">
+                    <div className="d-flex flex-wrap justify-content-around justify-content-md-between align-items-center">
                         {
                             brands.map(brand =>
                                 <img key={brand._id} className="clients-image img-fluid" src={brand.pic} alt="" />
