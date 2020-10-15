@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Table from 'react-bootstrap/Table';
 import popUp from '../../../Utilities/popUp';
 import DashboardHeader from '../DashboardHeader/DashboardHeader';
@@ -37,7 +37,7 @@ const AdminServiceList = () => {
                 <p>Service List <span className="ml-3" id="popUp">Order Updated</span></p>
             </DashboardHeader>
             <div className="servicelist-table">
-                <Table borderless>
+                <Table borderless responsive="md">
                     <thead>
                         <tr>
                             <th>Name</th>
@@ -52,14 +52,15 @@ const AdminServiceList = () => {
                             orders.map(order => {
                                 const { name, email, category, productDetails, status } = order;
                                 return (
-                                    <tr>
+                                    <tr key={order._id}>
                                         <td>{name}</td>
                                         <td>{email}</td>
                                         <td>{category}</td>
                                         <td>{productDetails}</td>
                                         <td className="text-center">
-                                            <div class="input-group">
-                                                <select class="custom-select" onChange={(e) => handleChange(e, order._id)}>
+                                            <div className="input-group">
+                                                <select className="custom-select" 
+                                                onChange={(e) => handleChange(e, order._id)}>
                                                     <option selected={status === 'Pending' && 'selected'} value="Pending" className="red">Pending</option>
                                                     <option selected={status === 'Ongoing' && 'selected'} value="Ongoing" className="yellow">On going</option>
                                                     <option selected={status === 'Done' && 'selected'} value="Done" className="green">Done</option>

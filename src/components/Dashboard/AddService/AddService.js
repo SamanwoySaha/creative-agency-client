@@ -43,7 +43,9 @@ const AddService = () => {
 
     return (
         <div>
-            <DashboardHeader><p>Add Services</p></DashboardHeader>
+            <DashboardHeader>
+                <p>Add Services</p>
+            </DashboardHeader>
             <div className="form-container">
                 <form onSubmit={handleSubmit} action="" className="admin-form">
                     <div className="d-flex justify-content-between">

@@ -10,7 +10,7 @@ import { Route, useRouteMatch, Switch, useHistory } from 'react-router-dom';
 
 const Dashboard = () => {
     const { loggedInUser } = useContext(UserContext);
-    const [isAdmin, setIsAdmin] = useState(false);
+    const [ isAdmin, setIsAdmin ] = useState(false);
     const { path } = useRouteMatch();
     const history = useHistory();
 
@@ -36,10 +36,10 @@ const Dashboard = () => {
     return (
         <Container fluid>
             <div className="row">
-                <div className="col-md-2">
+                <div className="col-sm-12 col-md-2">
                     <Sidebar isAdmin={isAdmin}></Sidebar>
                 </div>
-                <div className="col-md-10">
+                <div className="col-sm-12 col-md-10">
                     <Switch>
                         {
                             isAdmin

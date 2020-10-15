@@ -6,7 +6,7 @@ import './ClientServiceList.css';
 
 const ClientServiceList = () => {
     const { loggedInUser } = useContext(UserContext);
-    const [orders, setOrders] = useState([]);
+    const [ orders, setOrders ] = useState([]);
 
     useEffect(() => {
         fetch('https://calm-savannah-67550.herokuapp.com/ordersByEmail', {
@@ -24,7 +24,7 @@ const ClientServiceList = () => {
             <DashboardHeader><p>Service List</p></DashboardHeader>
             <div className="clientServiceList d-flex flex-wrap">
                 {
-                    orders.map(service => <ClientService service={service}></ClientService>)
+                    orders.map(service => <ClientService key={service._id} service={service}></ClientService>)
                 }
             </div>
         </div>

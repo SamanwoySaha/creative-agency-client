@@ -9,7 +9,7 @@ const Login = () => {
     let history = useHistory();
     let location = useLocation();
     let { from } = location.state || { from: { pathname: "/" } };
-    const {loggedInUser, setLoggedInUser} = useContext(UserContext);
+    const { setLoggedInUser } = useContext(UserContext);
 
     const handleGoogleSignIn = () => {
         signInWithGoogle()

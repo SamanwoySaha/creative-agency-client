@@ -19,7 +19,6 @@ const MakeAdmin = () => {
                 }
             })
             .catch(err => console.log(err))
-
         e.preventDefault();
     }
 

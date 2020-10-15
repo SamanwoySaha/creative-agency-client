@@ -11,7 +11,7 @@ const Banner = () => {
                         <h1 className="banner-heading mb-4">Let’s Grow Your Brand To The Next Level</h1>
                         <p className="sec-color banner-article mb-4">
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus commodo ipsum duis laoreet maecenas. Feugiat
-                            </p>
+                        </p>
                         <button className="main-btn">Hire us</button>
                     </div>
                     <div className="col-sm-12 col-md-7">

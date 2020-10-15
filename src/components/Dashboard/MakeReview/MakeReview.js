@@ -7,7 +7,7 @@ import '../../../Utilities/popUp.css';
 
 const MakeReview = () => {
     const { loggedInUser } = useContext(UserContext);
-    const [review, setReview] = useState({});
+    const [ review, setReview ] = useState({});
 
     const handleBlur = (e) => {
         const reviewInfo = { ...review };

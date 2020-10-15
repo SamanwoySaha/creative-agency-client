@@ -8,7 +8,7 @@ import popUp from '../../../Utilities/popUp';
 import '../../../Utilities/popUp.css';
 
 const Order = () => {
-    const { orderedService, setOrderedService } = useContext(UserContext);
+    const { orderedService } = useContext(UserContext);
     const [orderInfo, setOrderInfo] = useState({});
     const [file, setFile] = useState(null);
 
@@ -30,6 +30,8 @@ const Order = () => {
         formData.append('email', orderInfo.email);
         formData.append('category', orderedService.title);
         formData.append('description', orderedService.description);
+        formData.append('iconContentType', orderedService.icon.contentType);
+        formData.append('iconImg', orderedService.icon.img);
         formData.append('productDetails', orderInfo.productDetails);
         formData.append('price', orderInfo.price);
         formData.append('status', 'Pending');
@@ -55,7 +57,7 @@ const Order = () => {
             <form onSubmit={handleSubmit} className="user-form" action="">
                 <input onBlur={handleBlur} type="text" className="form-control mb-3" name="name" placeholder="Your name / company's name" required/>
                 <input onBlur={handleBlur} type="email" className="form-control mb-3" name="email" placeholder="Your email address" required/>
-                <input onBlur={handleBlur} type="text" value={orderedService.title} className="form-control mb-3" name="category" placeholder="Your Category" readonly />
+                <input onBlur={handleBlur} type="text" value={orderedService.title} className="form-control mb-3" name="category" placeholder="Your Category" />
                 <textarea onBlur={handleBlur} name="productDetails" className="form-control mb-3" placeholder="Product Details" required></textarea>
                 <div className="d-flex mb-2">
                     <input onBlur={handleBlur} type="text" className="form-control inline" name="price" placeholder="Price" required/>
@@ -65,10 +67,10 @@ const Order = () => {
                     </label>
                     <input onChange={handleChange} type="file" className="file-input" name="image" id="image" required/>
                 </div>
-                <d className="flex justify-content-between align-items-center">
+                <div className="flex justify-content-between align-items-center">
                     <button type="submit" className="main-btn">Send</button>
                     <p id="popUp">Order Added</p>
-                </d>
+                </div>
             </form>
         </div>
     );

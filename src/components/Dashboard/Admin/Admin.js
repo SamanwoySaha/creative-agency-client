@@ -7,6 +7,7 @@ import { Route, useRouteMatch, Switch } from 'react-router-dom';
 
 const Admin = () => {
     const { path } = useRouteMatch();
+    
     return (
         <div className="admin">
             <Switch>

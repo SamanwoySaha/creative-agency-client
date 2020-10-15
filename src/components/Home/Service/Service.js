@@ -5,10 +5,10 @@ import {UserContext} from '../../../App';
 import { useHistory } from 'react-router-dom';
 
 const Service = ({ service }) => {
-    const {setOrderedService} = useContext(UserContext);
+    const { setOrderedService } = useContext(UserContext);
     const { icon, title, description } = service;
     const history = useHistory();
-    const [state, toggle] = useState(true)
+    const [ state, toggle ] = useState(true)
     const { x } = useSpring({ from: { x: 0 }, x: state ? 1 : 0, config: { duration: 1000 } })
 
     const handleClick = () => {
@@ -16,7 +16,7 @@ const Service = ({ service }) => {
         toggle(!state);
         setTimeout(() => {
             history.push('/dashboard');
-        }, 2000)
+        }, 1000)
     }
     
     return (

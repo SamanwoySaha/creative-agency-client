@@ -10,16 +10,18 @@ import Login from './components/Login/Login';
 import NoMatch from './components/NoMatch/NoMatch';
 import Dashboard from './components/Dashboard/Dashboard/Dashboard';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
+import { Sugar } from 'react-preloaders';
 
 export const UserContext = createContext();
 
 function App() {
-  const [loggedInUser, setLoggedInUser] = useState({});
-  const [orderedService, setOrderedService] = useState('');
+  const [ loggedInUser, setLoggedInUser ] = useState({});
+  const [ orderedService, setOrderedService ] = useState('');
 
   return (
     <UserContext.Provider value={{ loggedInUser, setLoggedInUser, orderedService, setOrderedService }} className="app">
       <Router>
+      <Sugar background={'#FBD062'} />
         <Switch>
           <Route exact path="/">
             <Home></Home>
