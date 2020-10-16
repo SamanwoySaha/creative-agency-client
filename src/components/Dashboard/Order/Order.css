@@ -28,3 +28,10 @@
     color: #009444;
     cursor: pointer;
 }
+
+@media (max-width: 768px) {
+    .user-form{
+        width: 350px;
+        margin: 30px 40px;
+    }
+}
