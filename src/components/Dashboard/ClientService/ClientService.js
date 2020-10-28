@@ -22,9 +22,9 @@ const ClientService = ({ service }) => {
         <div className="clientService">
             <div className="d-flex justify-content-between">
                 <img className="service-img img-fluid mb-3" src={`data:${iconContentType};base64,${iconImg}`} alt="" />
-                <p style={(status === 'Pending') ? statusStyle.pending 
-                        : (status === 'Ongoing') ? statusStyle.onGoing 
-                        : statusStyle.done} 
+                <p style={(status === 'Pending') ? statusStyle.pending
+                    : (status === 'Ongoing') ? statusStyle.onGoing
+                    : statusStyle.done}
                 className="status">{status}</p>
             </div>
             <h5 className="service-title mb-2">{category}</h5>
